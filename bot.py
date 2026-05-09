@@ -5,7 +5,7 @@ from aiogram.types import Message, CallbackQuery, ReplyKeyboardMarkup, KeyboardB
 from aiogram.filters import CommandStart, Command
 from aiogram.filters.callback_data import CallbackData
 
-API_TOKEN = "Your Token"
+API_TOKEN = "8727157631:AAEzneTzwx43Mzeyk4rT6oenD2FRZVi35d0"
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
