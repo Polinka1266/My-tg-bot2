@@ -17,7 +17,7 @@ class QuizCallback(CallbackData, prefix="quiz"):
 # ================= START =================
 @dp.message(CommandStart())
 async def start_handler(message: Message):
-    await message.answer("Привіт! Я твій бот \nНапиши /menu")
+    await message.answer("Привіт! Я твій бот \nНапиши /help")
 
 # ================= HELP =================
 @dp.message(Command("help"))
@@ -34,7 +34,7 @@ async def help_command(message: Message):
 # ================= ABOUT =================
 @dp.message(Command("about"))
 async def about_command(message: Message):
-    await message.answer("Я створений Полінкою💖(Але якщо чесно…більшість роботи зробив чат GPT)")
+    await message.answer("Я створений Полінкою💖(Але якщо чесно…більшість роботи зробив Тащук Давід)")
 
 # ================= VERSION =================
 @dp.message(Command("version"))
@@ -76,9 +76,9 @@ async def quiz_answer(callback: CallbackQuery, callback_data: QuizCallback):
 
 # ================= TEXT =================
 facts = [
-    "24 серпня 1991 — Незалежність України 🇺🇦",
+    "Коти живуть 18-20 років і більше",
     "Київ — столиця України 🏙️",
-    "Найбільша річка — Дніпро 🌊"
+    "Найбільша річка — Амазонка 🌊"
 ]
 
 @dp.message()
@@ -98,7 +98,7 @@ async def text_handler(message: Message):
         await message.answer("Тут поки нічого нема ⚙️")
 
     elif "історія" in text:
-        await message.answer(random.choice(facts))
+        await message.answer("24 серпня 1991 — Незалежність України 🇺🇦")
 
     elif "дякую" in text:
         await message.answer("Завжди радий допомогти 😊")
