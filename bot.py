@@ -47,6 +47,8 @@ async def menu(message: Message):
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="Цікавий факт 💡")],
+            [KeyboardButton(text="Історія 📜 ")],
+            [KeyboardButton(text="Анекдоти 😸")],
             [KeyboardButton(text="Мій розклад 📅")],
             [KeyboardButton(text="Налаштування ⚙️")],
         ],
@@ -76,9 +78,25 @@ async def quiz_answer(callback: CallbackQuery, callback_data: QuizCallback):
 
 # ================= TEXT =================
 facts = [
-    "Коти живуть 18-20 років і більше",
+    "Коти живуть 18-20 років і більше 🐾",
     "Київ — столиця України 🏙️",
     "Найбільша річка — Амазонка 🌊"
+]
+
+# ================= TEXT =================
+history_facts = [
+    "24 серпня 1991 — Незалежність України 🇺🇦",
+    "Попри Валуєвський циркуляр (1863) та Емський указ (1876), що забороняли українську мову, вона вижила завдяки творам Шевченка, Франка та Лесі Українки.",
+    "Стародавні єгиптяни вважали мозок непотрібною «начинкою» і видаляли його під час бальзамування, вважаючи, що людина мислить серцем.",
+    "У XIX столітті зубні протези часто робили із зубів загиблих солдатів."
+]
+
+# ================= TEXT =================
+jokes = [
+    "Якщо кіт ліг на твої зошити - значить, навчання  офіційно завершено.",
+    "Коти вважають, що люди існують для відкривання дверей.",
+    "Кіт: Я не заважаю працюват. Я - моральна підтримка на клавіатурі.",
+    "Чому котик такий щасливий? Тому що зловилв мишку Та щуку."
 ]
 
 @dp.message()
@@ -92,13 +110,16 @@ async def text_handler(message: Message):
         await message.answer(random.choice(facts))
 
     elif "мій розклад" in text:
-        await message.answer("Для тебе завжди вільний 😎")
+        await message.answer("У тебе завжди вільний час!")
 
     elif "налаштування" in text:
         await message.answer("Тут поки нічого нема ⚙️")
 
     elif "історія" in text:
-        await message.answer("24 серпня 1991 — Незалежність України 🇺🇦")
+        await message.answer(random.choice(history_facts))
+
+    elif "анекдоти" in text:
+        await message.answer(random.choice(jokes))
 
     elif "дякую" in text:
         await message.answer("Завжди радий допомогти 😊")
@@ -111,6 +132,15 @@ async def text_handler(message: Message):
 @dp.message(Command("facts"))
 async def facts_command(message: Message):
     await message.answer(random.choice(facts))
+
+# ================= FACTS COMMAND =================
+@dp.message(Command("history_facts"))
+async def facts_command(message: Message):
+    await message.answer(random.choice(history_facts))
+
+@dp.message(Command("jokes"))
+async def facts_command(message: Message):
+    await message.answer(random.choice(jokes))
 
 # ================= RUN =================
 async def main():
