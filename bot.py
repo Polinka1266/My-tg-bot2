@@ -34,7 +34,7 @@ async def help_command(message: Message):
 # ================= ABOUT =================
 @dp.message(Command("about"))
 async def about_command(message: Message):
-    await message.answer("Я створений Полінкою💖(Але якщо чесно…більшість роботи зробив Тащук Давід)")
+    await message.answer("Я створений Полінкою💖(Але якщо чесно…більшість роботи зробив чат GPT)")
 
 # ================= VERSION =================
 @dp.message(Command("version"))
@@ -71,10 +71,13 @@ async def quiz(message: Message):
 @dp.callback_query(QuizCallback.filter())
 async def quiz_answer(callback: CallbackQuery, callback_data: QuizCallback):
     if callback_data.answer == "correct":
-        await callback.message.answer("Правильно! ✅")
+        await callback.message.answer("✅ Правильно!")
     else:
-        await callback.message.answer("Спробуй ще раз! ❌")
-    await callback.answer()
+        await callback.message.answer(
+            "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n"
+            "❌ НЕПРАВИЛЬНО ❌\n"
+            "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+        )
 
 # ================= TEXT =================
 facts = [
