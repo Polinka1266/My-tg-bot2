@@ -72,12 +72,17 @@ async def quiz(message: Message):
 async def quiz_answer(callback: CallbackQuery, callback_data: QuizCallback):
     if callback_data.answer == "correct":
         await callback.message.answer("✅ Правильно!")
+
+        await callback.answer()  # без popup
     else:
         await callback.message.answer(
-            "❌ НЕПРАВИЛЬНА ВІДПОВІДЬ ❌\n"
+            "❌ НЕПРАВИЛЬНО ❌\n"
         )
 
-    await callback.answer(show_alert=True, text="❌ Неправильно!")
+        await callback.answer(
+            text="❌ Неправильно!",
+            show_alert=True
+        )
 # ================= TEXT =================
 facts = [
     "Коти живуть 18-20 років і більше 🐾",
