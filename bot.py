@@ -74,9 +74,7 @@ async def quiz_answer(callback: CallbackQuery, callback_data: QuizCallback):
         await callback.message.answer("✅ Правильно!")
     else:
         await callback.message.answer(
-            "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫\n"
             "❌ НЕПРАВИЛЬНА ВІДПОВІДЬ ❌\n"
-            "🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
         )
 
     await callback.answer(show_alert=True, text="❌ Неправильно!")
